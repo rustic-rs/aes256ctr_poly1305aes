@@ -1,0 +1,38 @@
+[package]
+name = "aes256ctr_poly1305aes"
+version = "0.1.1"
+description = """
+Pure Rust implementation of the AES256CTR-Poly1305AES Authenticated Encryption
+with optional architecture-specific hardware acceleration.
+"""
+authors = ["Alexander Weiss"]
+edition = "2018"
+license = "Apache-2.0 OR MIT"
+readme = "README.md"
+documentation = "https://docs.rs/aes256ctr-poly1305aes"
+repository = "https://github.com/aawsome/aes256ctr-poly1305aes"
+keywords = ["aead", "aes256ctr", "aes", "poly1305"]
+categories = ["cryptography", "no-std"]
+
+[dependencies]
+aead = { version = "0.4", default-features = false }
+aes = { version = "0.7", features = ["ctr"] }
+cipher = "0.3"
+poly1305 = "0.7"
+zeroize = { version = ">=1, <1.5", default-features = false }
+subtle = { version = ">=2, <2.5", default-features = false }
+
+[dev-dependencies]
+aead = { version = "0.4", features = ["dev"], default-features = false }
+
+[features]
+default = ["alloc"]
+std = ["aead/std", "alloc"]
+alloc = ["aead/alloc"]
+heapless = ["aead/heapless"]
+stream = ["aead/stream"]
+force-soft = ["aes/force-soft", "poly1305/force-soft"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
