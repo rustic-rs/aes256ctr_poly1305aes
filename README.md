@@ -59,6 +59,6 @@ dual licensed as above, without any additional terms or conditions.
 [3]: https://docs.rs/aes/latest/aes/struct.Aes256Ctr.html
 [4]: https://github.com/RustCrypto/universal-hashes/tree/master/poly1305
 [5]: https://docs.rs/aes/latest/aes/struct.Aes128.html
-[6]: https://crates.io/crates/chacha20_poly1305aes 
+[6]: https://crates.io/crates/chacha20poly1305
 [7]: https://cr.yp.to/mac/poly1305-20050329.pdf
 [8]: https://github.com/restic/restic
