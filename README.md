@@ -6,7 +6,7 @@
 ![Rust Version][rustc-image]
 [![Crates.io Downloads][downloads-image]][crate-link]
 
-Pure Rust implementation of **AES256-CTR/Poly1305-AES** ([RFC 8439][1]): an
+Pure Rust implementation of **AES256-CTR/Poly1305-AES**: an
 [Authenticated Encryption with Associated Data (AEAD)][2] cipher amenable to
 fast, constant-time implementations in software, based on the [AES256-CTR][3]
 stream cipher and the Poly1305-AES MAC which uses the [Poly1305][4] universal
@@ -59,6 +59,6 @@ dual licensed as above, without any additional terms or conditions.
 [3]: https://docs.rs/aes/latest/aes/struct.Aes256Ctr.html
 [4]: https://github.com/RustCrypto/universal-hashes/tree/master/poly1305
 [5]: https://docs.rs/aes/latest/aes/struct.Aes128.html
-[6]: https://crates.io/crates/aes256ctr_poly1305aes 
+[6]: https://crates.io/crates/chacha20_poly1305aes 
 [7]: https://cr.yp.to/mac/poly1305-20050329.pdf
 [8]: https://github.com/restic/restic
