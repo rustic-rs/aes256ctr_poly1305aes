@@ -54,12 +54,11 @@ where
             return Err(Error);
         }
 
-
         use subtle::ConstantTimeEq;
         let expected_tag = self.mac.compute_unpadded(buffer).into_bytes();
 
         // This performs a constant-time comparison using the `subtle` crate
-        if expected_tag.ct_eq(&tag).unwrap_u8() == 1 {
+        if expected_tag.ct_eq(tag).unwrap_u8() == 1 {
             // TODO(tarcieri): interleave decryption with Poly1305
             // See: <https://github.com/RustCrypto/AEADs/issues/74>
             self.cipher.apply_keystream(buffer);
