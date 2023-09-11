@@ -1,9 +1,9 @@
 //! [`Aes256CtrPoly1305Aes`] is an [Authenticated Encryption with Associated Data
 //! (AEAD)][2] cipher amenable to fast, constant-time implementations in software,
-//! based on the [AES256-CTR][3] stream cipher and the [Poly1305-AES MAC] [4] 
+//! based on the [AES256-CTR][3] stream cipher and the [Poly1305-AES MAC] [4]
 //! which uses the [Poly1305][5] universal hash function in combination with the
 //! [AES-128][6] block cipher.
-//! 
+//!
 //! A lot code is copied from the [chacha20poly1305 crate][7]
 //!
 //! This crate contains pure Rust implementations of [`Aes256CtrPoly1305Aes`]
@@ -27,7 +27,7 @@
 //! use aes256ctr_poly1305aes::aead::{Aead, NewAead};
 //!
 //! // 64 bytes key
-//! let key = Key::from_slice(b"This is an example of a very secret key. Keep it always secret!!"); 
+//! let key = Key::from_slice(b"This is an example of a very secret key. Keep it always secret!!");
 //! let cipher = Aes256CtrPoly1305Aes::new(key);
 //!
 //! let nonce = Nonce::from_slice(b"my unique nonce!"); // 16-bytes; unique per message
@@ -83,14 +83,14 @@
 //! assert_eq!(&buffer, b"plaintext message");
 //! # }
 //! ```
-//! 
+//!
 //! [1]: https://tools.ietf.org/html/rfc8439
 //! [2]: https://en.wikipedia.org/wiki/Authenticated_encryption
 //! [3]: https://docs.rs/aes/latest/aes/struct.Aes256Ctr.html
 //! [4]: https://cr.yp.to/mac/poly1305-20050329.pdf
 //! [5]: https://github.com/RustCrypto/universal-hashes/tree/master/poly1305
 //! [6]: https://docs.rs/aes/latest/aes/struct.Aes128.html
-//! [7]: https://crates.io/crates/chacha20poly1305 
+//! [7]: https://crates.io/crates/chacha20poly1305
 
 #![no_std]
 #![cfg_attr(docsrs, feature(doc_cfg))]
@@ -112,12 +112,9 @@ use aead::{
 };
 use zeroize::Zeroize;
 
-use ::cipher::{BlockEncrypt, NewBlockCipher, FromBlockCipher};
+use ::cipher::{BlockEncrypt, FromBlockCipher, NewBlockCipher};
 use aes::{Aes128, Aes256, Aes256Ctr};
-use poly1305::{
-    universal_hash::NewUniversalHash,
-    Poly1305,
-};
+use poly1305::{universal_hash::NewUniversalHash, Poly1305};
 
 /// Key type (512-bits/64-bytes).
 ///
@@ -159,7 +156,7 @@ impl Aes256CtrPoly1305Aes {
         Aes128::new(&self.aes128_key).encrypt_block(&mut block);
         mac_key[16..32].copy_from_slice(&block);
         block.zeroize();
-    
+
         let cipher = Cipher::new(
             Aes256Ctr::from_block_cipher(Aes256::new(&self.aes256ctr_key), nonce),
             Poly1305::new(&mac_key),
@@ -167,7 +164,6 @@ impl Aes256CtrPoly1305Aes {
         mac_key.zeroize();
         cipher
     }
-
 }
 
 impl NewAead for Aes256CtrPoly1305Aes {
@@ -199,7 +195,8 @@ impl AeadInPlace for Aes256CtrPoly1305Aes {
         associated_data: &[u8],
         buffer: &mut [u8],
     ) -> Result<Tag, Error> {
-        self.cipher_from_nonce(nonce).encrypt_in_place_detached(associated_data, buffer)
+        self.cipher_from_nonce(nonce)
+            .encrypt_in_place_detached(associated_data, buffer)
     }
 
     fn decrypt_in_place_detached(
@@ -209,7 +206,8 @@ impl AeadInPlace for Aes256CtrPoly1305Aes {
         buffer: &mut [u8],
         tag: &Tag,
     ) -> Result<(), Error> {
-        self.cipher_from_nonce(nonce).decrypt_in_place_detached(associated_data, buffer, tag)
+        self.cipher_from_nonce(nonce)
+            .decrypt_in_place_detached(associated_data, buffer, tag)
     }
 }
 
