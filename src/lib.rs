@@ -110,11 +110,14 @@ use aead::{
     generic_array::GenericArray,
     AeadCore, AeadInPlace, Error, KeyInit,
 };
+use ctr::Ctr64BE;
 use zeroize::Zeroize;
 
-use ::cipher::{BlockEncrypt, FromBlockCipher, NewBlockCipher};
-use aes::{Aes128, Aes256, Aes256Ctr};
+use ::cipher::{BlockEncrypt, KeyIvInit};
+use aes::{Aes128, Aes256};
 use poly1305::Poly1305;
+
+type Aes256Ctr = Ctr64BE<Aes256>;
 
 /// Key type (512-bits/64-bytes).
 ///
@@ -158,7 +161,7 @@ impl Aes256CtrPoly1305Aes {
         block.zeroize();
 
         let cipher = Cipher::new(
-            Aes256Ctr::from_block_cipher(Aes256::new(&self.aes256ctr_key), nonce),
+            <Aes256Ctr as KeyIvInit>::new(&self.aes256ctr_key, nonce),
             Poly1305::new(&mac_key),
         );
         mac_key.zeroize();
