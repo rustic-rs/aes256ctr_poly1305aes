@@ -39,7 +39,7 @@ where
         // TODO(tarcieri): interleave encryption with Poly1305
         // See: <https://github.com/RustCrypto/AEADs/issues/74>
         self.cipher.apply_keystream(buffer);
-        Ok(self.mac.compute_unpadded(buffer).into_bytes())
+        Ok(self.mac.compute_unpadded(buffer))
     }
 
     /// Decrypt the given message, first authenticating ciphertext integrity
@@ -55,7 +55,7 @@ where
         }
 
         use subtle::ConstantTimeEq;
-        let expected_tag = self.mac.compute_unpadded(buffer).into_bytes();
+        let expected_tag = self.mac.compute_unpadded(buffer);
 
         // This performs a constant-time comparison using the `subtle` crate
         if expected_tag.ct_eq(tag).unwrap_u8() == 1 {

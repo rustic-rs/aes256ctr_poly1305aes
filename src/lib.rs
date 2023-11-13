@@ -24,7 +24,7 @@
 //! # #[cfg(feature = "alloc")]
 //! # {
 //! use aes256ctr_poly1305aes::{Aes256CtrPoly1305Aes, Key, Nonce};
-//! use aes256ctr_poly1305aes::aead::{Aead, NewAead};
+//! use aes256ctr_poly1305aes::aead::Aead;
 //!
 //! // 64 bytes key
 //! let key = Key::from_slice(b"This is an example of a very secret key. Keep it always secret!!");
@@ -108,13 +108,13 @@ use self::cipher::Cipher;
 use aead::{
     consts::{U0, U16, U32, U64},
     generic_array::GenericArray,
-    AeadCore, AeadInPlace, Error, NewAead,
+    AeadCore, AeadInPlace, Error, KeyInit,
 };
 use zeroize::Zeroize;
 
 use ::cipher::{BlockEncrypt, FromBlockCipher, NewBlockCipher};
 use aes::{Aes128, Aes256, Aes256Ctr};
-use poly1305::{universal_hash::NewUniversalHash, Poly1305};
+use poly1305::Poly1305;
 
 /// Key type (512-bits/64-bytes).
 ///
@@ -164,16 +164,12 @@ impl Aes256CtrPoly1305Aes {
         mac_key.zeroize();
         cipher
     }
-}
-
-impl NewAead for Aes256CtrPoly1305Aes {
-    type KeySize = U64;
 
     /// New AEAD using AES256-CTR and Poly1305-AES from the given 64-byte key.
     /// The first 32 bytes are used as key for AES256-CTR.
     /// The following 16 bytes are used as key for the AES128 used in Poly1305-AES.
     /// The last 16 bytes are used as r in Poly1305-AES.
-    fn new(key: &Key) -> Self {
+    pub fn new(key: &Key) -> Self {
         Self {
             aes256ctr_key: GenericArray::clone_from_slice(&key[0..32]),
             aes128_key: GenericArray::clone_from_slice(&key[32..48]),
