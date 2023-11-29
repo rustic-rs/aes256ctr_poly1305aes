@@ -1,7 +1,6 @@
 [package]
 name = "aes256ctr_poly1305aes"
 version = "0.2.0"
-rust-version = "1.60.0"
 authors = ["Alexander Weiss"]
 categories = ["cryptography", "no-std"]
 documentation = "https://docs.rs/aes256ctr-poly1305aes"
@@ -10,6 +9,7 @@ keywords = ["aead", "aes256ctr", "aes", "poly1305"]
 license = "Apache-2.0 OR MIT"
 readme = "README.md"
 repository = "https://github.com/rustic-rs/aes256ctr_poly1305aes"
+rust-version = "1.60.0"
 description = """
 Pure Rust implementation of the AES256CTR-Poly1305AES Authenticated Encryption
 with optional architecture-specific hardware acceleration.
