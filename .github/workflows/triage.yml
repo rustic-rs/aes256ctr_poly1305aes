@@ -5,6 +5,7 @@ on:
 
 jobs:
   label_issue:
+    if: ${{ github.repository_owner == 'rustic-rs' }}
     runs-on: ubuntu-latest
     steps:
       - env:
