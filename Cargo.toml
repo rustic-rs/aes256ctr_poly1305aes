@@ -1,6 +1,7 @@
 [package]
 name = "aes256ctr_poly1305aes"
 version = "0.2.0"
+rust-version = "1.60.0"
 authors = ["Alexander Weiss"]
 categories = ["cryptography", "no-std"]
 documentation = "https://docs.rs/aes256ctr-poly1305aes"
