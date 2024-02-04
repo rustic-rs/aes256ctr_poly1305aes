@@ -88,6 +88,7 @@ jobs:
           toolchain: ${{ matrix.rust }}
           target: ${{ matrix.job.target }}
           use-cross: ${{ matrix.job.use-cross }}
+          project-cache-key: "aes256ctr_poly1305aes"
 
   result:
     name: Result (Cross-CI)
