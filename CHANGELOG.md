@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.1](https://github.com/rustic-rs/aes256ctr_poly1305aes/compare/v0.2.0...v0.2.1) - 2024-10-03
+
+### Fixed
+
+- *(ci)* remove unmaintained `actions-rs` ci actions
+
+### Other
+
+- *(deps)* update marcoieni/release-plz-action digest to 5c48341 ([#27](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/27))
+- generate lockfile in ci for rustsec/audit-check ([#28](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/28))
+- add triage label to new issues only if no label has been set when creating it ([#25](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/25))
+- *(deps)* fix cargo-deny config ([#26](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/26))
+- *(deps)* update actions ([#24](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/24))
+- ignore CHANGELOG.md in dprint formatting
+- *(deps)* Update renovate.json
+- use release-plz
+- break old ci jobs when new commits are pushed so we don't fill up the queue
+- don't let renovate rebase PRs to circumvent resource exhaustion issues
+- add project-related shared cache key
+- *(deps)* update swatinem/rust-cache digest to 23bce25 ([#20](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/20))
+- *(deps)* update embarkstudios/cargo-deny-action digest to 2fad080 ([#19](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/19))
+- *(deps)* update taiki-e/install-action digest to 3ed9916 ([#18](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/18))
+- *(deps)* update taiki-e/install-action digest to f34807f ([#17](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/17))
+- *(deps)* update taiki-e/install-action digest to 56ab793 ([#16](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/16))
+- *(deps)* update taiki-e/install-action digest to fea51d0 ([#15](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/15))
+- dprint fmt
+- activate automerge for github action digest update
+- activate automerge for github action digest update
+- *(deps)* update taiki-e/install-action digest to b59252d ([#14](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/14))
+- *(deps)* update taiki-e/install-action digest to 57fbff3 ([#13](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/13))
+- *(deps)* update taiki-e/install-action digest to 2b8d4e0 ([#12](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/12))
+- *(deps)* update taiki-e/install-action digest to a1f180f ([#11](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/11))
+- *(deps)* update taiki-e/install-action digest to c264868 ([#10](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/10))
+- dprint fmt
+- update rustsec/audit-check
+- update taiki-e/install-action
+- update dtolnay/rust-toolchain
+- Set MSRV to 1.60.0
+- Run actions that need secrets.GITHUB_TOKEN only on rustic-rs org
+
 ## [0.2.0] - 2023-11-13
 
 ### Bug Fixes
