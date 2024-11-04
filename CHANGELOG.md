@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.2](https://github.com/rustic-rs/aes256ctr_poly1305aes/compare/v0.2.1...v0.2.2) - 2024-11-04
+
+### Other
+
+- *(deps)* update marcoieni/release-plz-action digest to fff938e ([#35](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/35))
+- *(deps)* update actions ([#34](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/34))
+- *(deps)* update marcoieni/release-plz-action digest to 394e0e4 ([#33](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/33))
+- *(deps)* update actions ([#32](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/32))
+- update dprint config ([#31](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/31))
+- *(deps)* update marcoieni/release-plz-action digest to 693f6d4 ([#29](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/29))
+
 ## [0.2.1](https://github.com/rustic-rs/aes256ctr_poly1305aes/compare/v0.2.0...v0.2.1) - 2024-10-03
 
 ### Fixed
