@@ -24,7 +24,7 @@ defaults:
 
 jobs:
   cross-check:
-    name: Cross checking ${{ matrix.job.target }}
+    name: Cross checking ${{ matrix.job.target }} on ${{ matrix.rust }}
     runs-on: ${{ matrix.job.os }}
     strategy:
       fail-fast: false
@@ -50,7 +50,7 @@ jobs:
             os-name: macos
             target: aarch64-apple-darwin
             architecture: arm64
-            use-cross: false
+            use-cross: true
           - os: ubuntu-latest
             os-name: linux
             target: x86_64-unknown-linux-gnu
@@ -64,6 +64,11 @@ jobs:
           - os: ubuntu-latest
             os-name: linux
             target: aarch64-unknown-linux-gnu
+            architecture: arm64
+            use-cross: true
+          - os: ubuntu-latest
+            os-name: linux
+            target: aarch64-unknown-linux-musl
             architecture: arm64
             use-cross: true
           - os: ubuntu-latest
