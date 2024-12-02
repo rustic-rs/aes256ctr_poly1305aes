@@ -1,6 +1,6 @@
 [package]
 name = "aes256ctr_poly1305aes"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Alexander Weiss"]
 categories = ["cryptography", "no-std"]
 documentation = "https://docs.rs/aes256ctr-poly1305aes"

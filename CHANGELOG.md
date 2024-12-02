@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.2](https://github.com/rustic-rs/aes256ctr_poly1305aes/compare/v0.2.1...v0.2.2) - 2024-12-02
+
+### Other
+
+- *(deps)* update embarkstudios/cargo-deny-action digest to 2d8c992 ([#40](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/40))
+- *(deps)* add aws-lc-rs and aws-lc-sys to deny list due to build complexity and cross-compilation issues
+- add .vscode to ignore list
+- enhance cross-check job with Rust version and add support for aarch64-unknown-linux-musl
+- *(deps)* update actions ([#39](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/39))
+- *(deps)* update marcoieni/release-plz-action digest to f0fdfff ([#38](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/38))
+- *(deps)* update marcoieni/release-plz-action digest to 301fd6d ([#37](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/37))
+- add installation script for default feature on x86_64-unknown-linux-musl
+- use runners according to available images and target triple ([#36](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/36))
+- *(deps)* update marcoieni/release-plz-action digest to fff938e ([#35](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/35))
+- *(deps)* update actions ([#34](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/34))
+- *(deps)* update marcoieni/release-plz-action digest to 394e0e4 ([#33](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/33))
+- *(deps)* update actions ([#32](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/32))
+- update dprint config ([#31](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/31))
+- *(deps)* update marcoieni/release-plz-action digest to 693f6d4 ([#29](https://github.com/rustic-rs/aes256ctr_poly1305aes/pull/29))
+
 ## [0.2.1](https://github.com/rustic-rs/aes256ctr_poly1305aes/compare/v0.2.0...v0.2.1) - 2024-10-03
 
 ### Fixed
